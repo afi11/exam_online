@@ -20,7 +20,10 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-content fade-in-up">
-                @yield('content')
+                {{-- @yield('content') --}}
+                <main>
+                    {{ $slot }}
+                </main>
             </div>
             <!-- END PAGE CONTENT-->
             <footer class="page-footer">

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Schedules;
+use App\Http\Livewire\Welcome;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Admin\AdminController@index');
+Route::get('/', Welcome::class);
+Route::get('schedules', Schedules::class)->name('schedules');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

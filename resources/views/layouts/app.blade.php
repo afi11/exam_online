@@ -6,41 +6,57 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <!-- GLOBAL MAINLY STYLES-->
+        <link href="{{ asset('assets/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/vendors/themify-icons/css/themify-icons.css') }}" rel="stylesheet" />
+        <!-- PLUGINS STYLES-->
+        <!-- THEME STYLES-->
+        <link href="{{ asset('assets/css/main.min.css') }}" rel="stylesheet" />
 
         @livewireStyles
 
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        <x-jet-banner />
-
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+    <body class="fixed-navbar">
+        <div class="page-wrapper">
+            @include('admin.templates.header')
+            @include('admin.templates.sidebar')
+            <div class="content-wrapper">
+                <!-- START PAGE CONTENT-->
+                <div class="page-content fade-in-up">
+                    {{-- @yield('content') --}}
+                    <main>
+                        {{ $slot }}
+                    </main>
+                </div>
+                <!-- END PAGE CONTENT-->
+                <footer class="page-footer">
+                    <div class="font-13">2018 © <b>AdminCAST</b> - All rights reserved.</div>
+                    <a class="px-4" href="http://themeforest.net/item/adminca-responsive-bootstrap-4-3-angular-4-admin-dashboard-template/20912589" target="_blank">BUY PREMIUM</a>
+                    <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
+                </footer>
+            </div>
         </div>
 
         @stack('modals')
 
         @livewireScripts
+        <!-- BEGIN PAGA BACKDROPS-->
+        <div class="sidenav-backdrop backdrop"></div>
+        <div class="preloader-backdrop">
+            <div class="page-preloader">Loading</div>
+        </div>
+        <!-- END PAGA BACKDROPS-->
+        <!-- CORE PLUGINS-->
+        <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/vendors/popper.js/dist/umd/popper.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/vendors/metisMenu/dist/metisMenu.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+        <!-- PAGE LEVEL PLUGINS-->
+        <!-- CORE SCRIPTS-->
+        <script src="{{ asset('assets/js/app.min.js') }}" type="text/javascript"></script>
+        <!-- PAGE LEVEL SCRIPTS-->
+        <script src="{{ asset('assets/js/scripts/dashboard_1_demo.js') }}" type="text/javascript"></script>
     </body>
 </html>
