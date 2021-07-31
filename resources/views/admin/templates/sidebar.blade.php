@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li>
-                <a href="calendar.html"><i class="sidebar-item-icon fa fa-calendar"></i>
+                <a href="{{ url('schedules') }}"><i class="sidebar-item-icon fa fa-calendar"></i>
                     <span class="nav-label">Schedules</span>
                 </a>
             </li>

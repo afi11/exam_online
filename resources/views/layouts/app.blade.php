@@ -11,8 +11,11 @@
         <link href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/vendors/themify-icons/css/themify-icons.css') }}" rel="stylesheet" />
         <!-- PLUGINS STYLES-->
+        <link href="{{ asset('assets/vendors/DataTables/datatables.min.css') }}" rel="stylesheet" />
         <!-- THEME STYLES-->
         <link href="{{ asset('assets/css/main.min.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('css/customs.css') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/vendors/sweatalert/sweetalert2.min.css') }}" />
 
         @livewireStyles
 
@@ -39,8 +42,8 @@
         </div>
 
         @stack('modals')
-
         @livewireScripts
+        @stack('scripts')
         <!-- BEGIN PAGA BACKDROPS-->
         <div class="sidenav-backdrop backdrop"></div>
         <div class="preloader-backdrop">
@@ -54,9 +57,38 @@
         <script src="{{ asset('assets/vendors/metisMenu/dist/metisMenu.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
         <!-- PAGE LEVEL PLUGINS-->
+        <script src="{{ asset('assets/vendors/DataTables/datatables.min.js') }}" type="text/javascript"></script>
         <!-- CORE SCRIPTS-->
         <script src="{{ asset('assets/js/app.min.js') }}" type="text/javascript"></script>
         <!-- PAGE LEVEL SCRIPTS-->
         <script src="{{ asset('assets/js/scripts/dashboard_1_demo.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/vendors/sweatalert/sweetalert.min.js') }}"></script>
+        <script>
+            $('#data-table').DataTable();
+        </script>
+        <script>
+           window.addEventListener('swal:modal', event => { 
+                swal({
+                title: event.detail.message,
+                text: event.detail.text,
+                icon: event.detail.type,
+                });
+            });
+            
+            window.addEventListener('swal:confirm', event => { 
+                swal({
+                title: event.detail.message,
+                text: event.detail.text,
+                icon: event.detail.type,
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.livewire.emit('destroy', event.detail.id);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
