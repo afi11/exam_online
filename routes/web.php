@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Schedules;
+use App\Http\Livewire\Questions;
 use App\Http\Livewire\Welcome;
 
 /*
@@ -17,6 +18,7 @@ use App\Http\Livewire\Welcome;
 
 Route::get('/', Welcome::class);
 Route::get('schedules', Schedules::class)->name('schedules');
+Route::get('questions', Questions::class)->name('questions');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

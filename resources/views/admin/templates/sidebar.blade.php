@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li>
-                <a href="calendar.html"><i class="sidebar-item-icon fa fa-sticky-note"></i>
+                <a href="{{ url('questions') }}"><i class="sidebar-item-icon fa fa-sticky-note"></i>
                     <span class="nav-label">Questions</span>
                 </a>
             </li>

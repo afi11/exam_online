@@ -15,7 +15,6 @@
         <!-- THEME STYLES-->
         <link href="{{ asset('assets/css/main.min.css') }}" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('css/customs.css') }}" />
-        <link rel="stylesheet" href="{{ asset('assets/vendors/sweatalert/sweetalert2.min.css') }}" />
 
         @livewireStyles
 

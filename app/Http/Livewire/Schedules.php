@@ -31,11 +31,6 @@ class Schedules extends Component
         else $this->title = "Edit Schedule";
     }
 
-    public function closeAlert()
-    {
-        $this->isAlert = false;
-    }
-
     public function closeModal(){
         $this->isModal = false;
         $this->isEdit = false;
